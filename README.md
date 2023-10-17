@@ -46,3 +46,15 @@ lualine.setup({
     },
 })
 ```
+
+## Config
+
+```lua
+local wc = require("wordcounter")
+
+-- 默认配置
+wc.setup({
+    -- set to "*" for all filetype
+    allowed_filetypes = { "markdown", "text" },
+})
+```

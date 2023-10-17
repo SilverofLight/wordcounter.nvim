@@ -1,4 +1,6 @@
 local parser = require("wordcounter.parser")
+local util = require("wordcounter.util")
+local config = require("wordcounter.config")
 
 local M = {
     _bufs = {},
@@ -42,8 +44,25 @@ M.count_buf_words = function(buf_no)
 end
 
 M.count_cur_buf_words = function()
+    local fts = config.allowed_filetypes
+    local ft = vim.bo.filetype
+
+    if not util.contains(fts, "*") and not util.contains(fts, ft) then
+        return 0
+    end
+
     local words_count = M.count_buf_words(0)
     return words_count
+end
+
+M.setup = function(options)
+    if options == nil then
+        return
+    end
+
+    if options.allowed_filetypes ~= nil then
+        config.allowed_filetypes = options.allowed_filetypes
+    end
 end
 
 return M
