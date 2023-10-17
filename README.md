@@ -8,7 +8,7 @@
 
 ```lua
 use({
-    "/home/npc/github/lua/wordcounter.nvim",
+    "npc-z/wordcounter.nvim",
     requires = "uga-rosa/utf8.nvim",
 })
 ```
