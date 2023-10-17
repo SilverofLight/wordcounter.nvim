@@ -17,6 +17,8 @@ use({
 
 命令：
 
+统计当前 buffer 的词数
+
 ```
 :WordCount
 ```
@@ -24,7 +26,13 @@ use({
 绑定快捷键：
 
 ```lua
-vim.api.nvim_set_keymap("n", "<leader>wc", ":WordCount<CR>")
+vim.api.nvim_set_keymap("n", "<leader>wc", ":WordCount<CR>", { noremap = true })
+```
+
+统计选中的文本：
+
+```lua
+vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>WordSelectedCount<CR>", { noremap = true })
 ```
 
 配合 `lualine` 使用：

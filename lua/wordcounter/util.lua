@@ -54,9 +54,22 @@ local P = function(value)
     return value
 end
 
+local function get_visual_selection()
+    vim.cmd('noau silent! normal!  "vy"')
+    local text = vim.fn.getreg("v")
+    vim.fn.setreg("v", {})
+
+    text = string.gsub(text, "\n", "")
+    if #text > 0 then
+        return text
+    else
+        return ""
+    end
+end
+
 M.is_chinese_punctuation = is_chinese_punctuation
+M.get_visual_selection = get_visual_selection
 M.P = P
 M.utf8 = utf8
-
 
 return M
