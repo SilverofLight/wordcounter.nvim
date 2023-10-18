@@ -63,8 +63,8 @@ parser.ascii_word = function()
     local token = ""
     while not parser.at_end()
         and (
-            parser.current_char() == "-"
-            or parser.current_char() == "'"
+            parser.current_char() == "-"    -- eg: <animal-like> as ONE word
+            or parser.current_char() == "'" -- eg: <It's> as ONE word
             or parser.is_aplphanum(parser.current_char())
         ) do
         token = token .. parser.current_char()

@@ -45,12 +45,9 @@ M.count_buf_words = function(buf_no)
         return M._bufs[name]
     end
 
-    local words_count = 0
-
-    local w = M.count_lines_words(lines)
-    words_count = words_count + w
-
+    local words_count = M.count_lines_words(lines)
     M._bufs[name] = words_count
+
     return words_count
 end
 
@@ -62,8 +59,7 @@ M.count_cur_buf_words = function()
         return 0
     end
 
-    local words_count = M.count_buf_words(0)
-    return words_count
+    return M.count_buf_words(0)
 end
 
 M.setup = function(options)
