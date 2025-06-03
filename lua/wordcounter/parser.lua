@@ -84,10 +84,10 @@ parser.next_token = function()
         return parser.next_token()
     end
 
-    if util.is_chinese_punctuation(code) then
-        parser.advance()
-        return parser.next_token()
-    end
+    -- if util.is_chinese_punctuation(code) then
+    --     parser.advance()
+    --     return parser.next_token()
+    -- end
 
     if string.match(code, "%p") or string.match(code, "%c") then
         parser.advance()
